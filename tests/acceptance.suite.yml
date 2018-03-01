@@ -7,6 +7,25 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
+        - WebDriver
+        - Asserts
+        - Helper\AcceptanceHelper
+    config:
+        WebDriver:
+            host: firefox
             url: https://www.google.co.jp/
-        - \Helper\Acceptance
+            browser: firefox
+            port: 4444
+            window_size: 1024x768
+            restart: true
+ env:
+    chrome:
+        modules:
+            config:
+                WebDriver:
+                    browser: 'chrome'
+                    host: chrome
+                    window_size: 1440x960
+
+    firefox:
+        # nothing changed
